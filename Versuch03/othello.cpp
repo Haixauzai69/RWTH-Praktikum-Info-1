@@ -149,7 +149,7 @@ int gewinner(const int spielfeld[GROESSE_Y][GROESSE_X])
 */
 bool aufSpielfeld(const int posX, const int posY)
 {
-    if ((posX >= 0 && posX < GROESSE_X) && (posY >= 0 && posX < GROESSE_Y))
+    if ((posX >= 0 && posX < GROESSE_X) && (posY >= 0 && posY < GROESSE_Y))
     {
     	return true;
     }
@@ -186,8 +186,13 @@ bool zugGueltig(const int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSp
     {
         for (int i = -1; i <= 1; i++)
         {
-            // Hier erfolgt jetzt Ihre Implementierung ...
-
+            if(spielfeld[i][j] == gegner)
+            {
+            	if((spielfeld[i-1][j] || spielfeld[i][j-1] || spielfeld[i+1][j] || spielfeld[i][j+1] || spielfeld[i-1][j-1] || spielfeld[i+1][j+1] || spielfeld[i-1][j+1] || spielfeld[i+1][j-1]) == aktuellerSpieler)
+            	{
+            		return true;
+            	}
+            }
         }
     }
     return false;
