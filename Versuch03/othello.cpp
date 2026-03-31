@@ -149,7 +149,7 @@ int gewinner(const int spielfeld[GROESSE_Y][GROESSE_X])
 */
 bool aufSpielfeld(const int posX, const int posY)
 {
-    if ((posX > 0 && posX < GROESSE_X) && (posY > 0 && posX < GROESSE_Y))
+    if ((posX >= 0 && posX < GROESSE_X) && (posY >= 0 && posX < GROESSE_Y))
     {
     	return true;
     }
@@ -178,7 +178,7 @@ bool zugGueltig(const int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSp
 
     if (spielfeld[posY][posX] != 0) // ist das Feld leer?
     {
-        return false;
+        return false;  // besetzt == nicht gueltig
     }
 
     // Alle Richtungen ueberpruefen bis erster gueltiger Zug gefunden
@@ -187,6 +187,7 @@ bool zugGueltig(const int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSp
         for (int i = -1; i <= 1; i++)
         {
             // Hier erfolgt jetzt Ihre Implementierung ...
+
         }
     }
     return false;

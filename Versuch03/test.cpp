@@ -97,9 +97,25 @@ bool zugGueltigTest(const int eingabeFeld[GROESSE_Y][GROESSE_X], const int spiel
 {
     // ueberprueft, ob der Zug fuer eine gegebene Position gueltig ist
     // wenn AUSFUEHRLICH gleich 1 wird zusaetzlich das Spielfeld und die ungueltige Position ausgegeben
-    //
-    // Hier erfolgt jetzt Ihre Implementierung ...
-
+   	std::cout << "Fuehre Test " << testNummer + 1 << " fuer 'zugGueltig()' aus ..." << std::endl;
+	std::cout << "----------------------------------" << std::endl << std::endl;
+	bool ergebnis = zugGueltig(eingabeFeld, spieler, posX, posY);
+	if (ergebnis == richtig)
+	{
+	    std::cout << "Test " << testNummer + 1 << " bestanden!" << std::endl << std::endl;
+	    return true;
+	}
+	else
+	{
+	    std::cout << "Test " << testNummer + 1 << " fehlgeschlagen" << std::endl << std::endl;
+	    if (AUSFUEHRLICH == 1)
+	    {
+	       zeigeSpielfeld(eingabeFeld);
+	       std::cout << std::endl << "Berechnetes Ergebnis: " << ergebnis << std::endl << "Richtiges Ergebnis: " << richtig
+	                 << std::endl << std::endl;
+	    }
+	    return false;
+	}
     return 0;
 }
 
@@ -283,7 +299,7 @@ bool ganzenTestAusfuehren()
 
         for (int i = 0; i < 7; i++)
         {
-        	bool tmp_ergebnis = zugGueltigTest(eingabeFeld[i], spieler[i], position[i][0], position[i][1], korrektesErgebnis[i], i)
+        	bool tmp_ergebnis = zugGueltigTest(eingabeFeld[i], spieler[i], position[i][0], position[i][1], korrektesErgebnis[i], i);
         	if (gesamtErgebnis == true && tmp_ergebnis == false)
             {
                 gesamtErgebnis = false;
