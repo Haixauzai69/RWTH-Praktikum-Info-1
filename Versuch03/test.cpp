@@ -283,8 +283,13 @@ bool ganzenTestAusfuehren()
 
         for (int i = 0; i < 7; i++)
         {
-            // Hier erfolgt jetzt Ihre Implementierung (entsprechende Testfunktion aufrufen) ...
+        	bool tmp_ergebnis = zugGueltigTest(eingabeFeld[i], spieler[i], position[i][0], position[i][1], korrektesErgebnis[i], i)
+        	if (gesamtErgebnis == true && tmp_ergebnis == false)
+            {
+                gesamtErgebnis = false;
+            }
         }
+      std::cout << "Ende des Tests fuer 'zugGueltig()'" << std::endl << std::endl;
     }
 
 
