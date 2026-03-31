@@ -186,13 +186,40 @@ bool zugGueltig(const int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSp
     {
         for (int i = -1; i <= 1; i++)
         {
-            if(spielfeld[i][j] == gegner)
-            {
-            	if((spielfeld[i-1][j] || spielfeld[i][j-1] || spielfeld[i+1][j] || spielfeld[i][j+1] || spielfeld[i-1][j-1] || spielfeld[i+1][j+1] || spielfeld[i-1][j+1] || spielfeld[i+1][j-1]) == aktuellerSpieler)
-            	{
-            		return true;
-            	}
-            }
+        	if(spielfeld[posY+i][posX+j] == gegner)
+        	{
+        		if(((posY+i) - posY) != 0)
+        		{
+        			while(spielfeld[posY+i][posX+j] != aktuellerSpieler)
+        			{
+        				i++;
+        				if (aufSpielfeld(posY+i,posX+j) == 0 || spielfeld[posY+i][posX+j] == 0)
+        				{
+        					return false;
+        				}
+        				if (spielfeld[posY+i][posX+j] == aktuellerSpieler)
+        				{
+        					return true;
+        				}
+        			}
+        		}
+
+        		if(((posX+j) - posX) != 0)
+        		{
+        		    while(spielfeld[posY+i][posX+j] != aktuellerSpieler)
+        		    {
+        		        j++;
+        		        if (aufSpielfeld(posY+i,posX+j) == 0 || spielfeld[posY+i][posX+j] == 0)
+        		        {
+        		        	return false;
+        		        }
+        		        if (spielfeld[posY+i][posX+j] == aktuellerSpieler)
+        		        {
+        		        	return true;
+        		        }
+        		     }
+        		 }
+        	}
         }
     }
     return false;
