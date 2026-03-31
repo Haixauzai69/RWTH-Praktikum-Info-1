@@ -69,11 +69,7 @@ bool gewinnerTest(const int eingabefeld[GROESSE_Y][GROESSE_X], const int richtig
  */
 bool aufSpielfeldTest(const int posX, const int posY, const bool richtig, const int testNummer)
 {
-    // ueberprueft, ob eine gegebene Position auf dem Spielfeld ist
-    //
-    // Hier erfolgt jetzt Ihre Implementierung ...
-
-	std::cout << "Fuehre Test " << testNummer + 1 << " fuer 'aufSpielfeld()' aus ..." << std::endl;
+    std::cout << "Fuehre Test " << testNummer + 1 << " fuer 'aufSpielfeld()' aus ..." << std::endl;
 	std::cout << "----------------------------------" << std::endl << std::endl;
 
 	bool ergebnis = aufSpielfeld(posX, posY);
@@ -92,31 +88,6 @@ bool aufSpielfeldTest(const int posX, const int posY, const bool richtig, const 
 		}
 		return false;
 	}
-
-
-//	bool gewinnerTest(const int eingabefeld[GROESSE_Y][GROESSE_X], const int richtig, const int testNummer)
-//	{
-//	    std::cout << "Fuehre Test " << testNummer + 1 << " fuer 'gewinner()' aus ..." << std::endl;
-//	    std::cout << "----------------------------------" << std::endl << std::endl;
-//	    int ergebnis = gewinner(eingabefeld);
-//	    if (ergebnis == richtig)
-//	    {
-//	        std::cout << "Test " << testNummer + 1 << " bestanden!" << std::endl << std::endl;
-//	        return true;
-//	    }
-//	    else
-//	    {
-//	        std::cout << "Test " << testNummer + 1 << " fehlgeschlagen" << std::endl << std::endl;
-//	        if (AUSFUEHRLICH == 1)
-//	        {
-//	            zeigeSpielfeld(eingabefeld);
-//	            std::cout << std::endl << "Berechnetes Ergebnis: " << ergebnis << std::endl << "Richtiges Ergebnis: " << richtig
-//	                      << std::endl << std::endl;
-//	        }
-//	        return false;
-//	    }
-//	}
-
     return 0;
 }
 
