@@ -126,13 +126,35 @@ bool zugAusfuehrenTest(int eingabeFeld[GROESSE_Y][GROESSE_X], const int ergebnis
     // ueberprueft, ob fuer ein gegebenes Spielfeld der Zug fuer einen gegebenen Spieler korrekt ausgefuehrt wird
     // wenn AUSFUEHRLICH gleich 1 werden zusaetzlich beide Spielfelder ausgegeben   
     //
-    // Hier erfolgt jetzt Ihre Implementierung ...
+	std::cout << "Fuehre Test " << testNummer + 1 << " fuer 'zugAusfuehren()' aus ..." << std::endl;
+	std::cout << "----------------------------------" << std::endl << std::endl;
 
+	zugAusfuehren(eingabeFeld, spieler, posX, posY);
+
+	if (eingabeFeld == ergebnisFeld)
+	{
+		std::cout << "Test " << testNummer + 1 << " bestanden!" << std::endl << std::endl;
+		return true;
+	}
+	else
+	{
+		std::cout << "Test " << testNummer + 1 << " fehlgeschlagen" << std::endl << std::endl;
+		if (AUSFUEHRLICH == 1)
+		{
+		   std::cout << "Original: " << std::endl;
+		   zeigeSpielfeld(eingabeFeld);
+		   std::cout << std::endl << "Berechnetes Ergebnis: " << std::endl;
+		   zeigeSpielfeld(eingabeFeld);
+		   std::cout << std::endl << "Richtiges Ergebnis: " << std::endl;
+		   zeigeSpielfeld(ergebnisFeld);
+		   std::cout << std::endl << std::endl;
+		}
+		return false;
+	}
     return 0;
 }
 
-bool moeglicheZuegeTest(const int eingabeFeld[GROESSE_Y][GROESSE_X], const int spieler,
-                         const int richtig, const int testNummer)
+bool moeglicheZuegeTest(const int eingabeFeld[GROESSE_Y][GROESSE_X], const int spieler, const int richtig, const int testNummer)
 {
     // ueberprueft, ob alle moeglichen Zuege fuer einen Spieler gefunden werden
     // wenn AUSFUEHRLICH gleich 1 wird zusaetzlich das Spielfeld, der berechnete falsche und der richtige Wert ausgegeben
@@ -531,8 +553,13 @@ bool ganzenTestAusfuehren()
 
         for (int i = 0; i < 10; i++)
         {
-            // Hier erfolgt jetzt Ihre Implementierung (entsprechende Testfunktion aufrufen) ...
+        	bool tmp_ergebnis = zugAusfuehrenTest(eingabeFeld[i], ergebnisFeld[i], spieler[i], position[i][0], position[i][1], i);
+        	if(gesamtErgebnis == true && tmp_ergebnis == false)
+        	{
+        		gesamtErgebnis = false;
+        	}
         }
+        std::cout << "Ende des Tests fuer 'zugAusfuehren()'" << std::endl << std::endl;
     }
 
 

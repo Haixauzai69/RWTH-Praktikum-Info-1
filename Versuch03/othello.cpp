@@ -229,8 +229,21 @@ void zugAusfuehren(int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpiel
             // allen Richtungen in Ihre eigenen Steine umgewandelt werden
             //
             // Hier erfolgt jetzt Ihre Implementierung ...
-        }
-    }
+        	while(zugGueltig(spielfeld, aktuellerSpieler, posX, posY))
+        	{
+        		int k = 2;
+        		if(spielfeld[posY+k*j][posX+k*i] == 0)
+        		{
+        			break;
+        		}
+				if(spielfeld[posY+k*j][posX+k*i] == gegner)
+				{
+					spielfeld[posY+k*j][posX+k*i] = aktuellerSpieler;
+				}
+				k++;
+        	} // while
+        } // for
+     } // for
 
 }
 
