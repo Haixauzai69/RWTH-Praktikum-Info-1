@@ -245,6 +245,7 @@ void zugAusfuehren(int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpiel
 								spielfeld[posY+l*j][posX+l*i] = aktuellerSpieler;
 							}
 						}
+						k++;
 					} // while
 				} // if
 			} // for
