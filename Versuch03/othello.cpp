@@ -220,31 +220,36 @@ void zugAusfuehren(int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpiel
 {
     int gegner = 3 - aktuellerSpieler;
 
-    //Alle Richtungen bearbeiten
-    for (int j = -1; j <= 1; j++)
+    if(zugGueltig(spielfeld, aktuellerSpieler, posX, posY))
     {
-        for (int i = -1; i <= 1; i++)
-        {
-            // aehnlich wie die Funktion zugGueltig(), aber stellen Sie sicher, das alle gegnerischen Steine in
-            // allen Richtungen in Ihre eigenen Steine umgewandelt werden
-            //
-            // Hier erfolgt jetzt Ihre Implementierung ...
-        	while(zugGueltig(spielfeld, aktuellerSpieler, posX, posY))
-        	{
-        		int k = 2;
-        		if(spielfeld[posY+k*j][posX+k*i] == 0)
-        		{
-        			break;
-        		}
-				if(spielfeld[posY+k*j][posX+k*i] == gegner)
-				{
-					spielfeld[posY+k*j][posX+k*i] = aktuellerSpieler;
-				}
-				k++;
-        	} // while
-        } // for
-     } // for
+		spielfeld[posY][posX] = aktuellerSpieler;
 
+		//Alle Richtungen bearbeiten
+		for (int j = -1; j <= 1; j++)
+		{
+			for (int i = -1; i <= 1; i++)
+			{
+				if(spielfeld[posY+j][posX+i] == gegner)
+				{
+					int k = 2;
+					while(aufSpielfeld(posY+k*j,posX+k*i))
+					{
+						if(spielfeld[posY+k*j][posX+k*i] == 0)
+						{
+							break;
+						}
+						else if(spielfeld[posY+k*j][posX+k*i] == aktuellerSpieler)
+						{
+							for(int l = k-1; l>0; l--)
+							{
+								spielfeld[posY+l*j][posX+l*i] = aktuellerSpieler;
+							}
+						}
+					} // while
+				} // if
+			} // for
+		 } // for
+    }
 }
 
 int moeglicheZuege(const int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpieler)

@@ -131,27 +131,32 @@ bool zugAusfuehrenTest(int eingabeFeld[GROESSE_Y][GROESSE_X], const int ergebnis
 
 	zugAusfuehren(eingabeFeld, spieler, posX, posY);
 
-	if (eingabeFeld == ergebnisFeld)
+	bool success = true;
+	for(int i = 0; i < GROESSE_Y; i++)
 	{
-		std::cout << "Test " << testNummer + 1 << " bestanden!" << std::endl << std::endl;
-		return true;
-	}
-	else
-	{
-		std::cout << "Test " << testNummer + 1 << " fehlgeschlagen" << std::endl << std::endl;
-		if (AUSFUEHRLICH == 1)
+		for(int j = 0; j < GROESSE_X; j++)
 		{
-		   std::cout << "Original: " << std::endl;
-		   zeigeSpielfeld(eingabeFeld);
-		   std::cout << std::endl << "Berechnetes Ergebnis: " << std::endl;
-		   zeigeSpielfeld(eingabeFeld);
-		   std::cout << std::endl << "Richtiges Ergebnis: " << std::endl;
-		   zeigeSpielfeld(ergebnisFeld);
-		   std::cout << std::endl << std::endl;
+			if(eingabeFeld[i][j] != ergebnisFeld[i][j]) // One wrong?
+			{
+				success = false;
+			}
 		}
+	}
+
+	if(!success)
+	{
+		std::cout << "Test fehlgeschlagen!" << std::endl;
+		std::cout << "Berechnet :" << std::endl;
+		zeigeSpielfeld(eingabeFeld);
+		std::cout << "Ergebnis ist :" << std::endl;
+		zeigeSpielfeld(ergebnisFeld);
 		return false;
 	}
-    return 0;
+
+	std::cout << "Test passed! Output field is:" << std::endl;
+	zeigeSpielfeld(eingabeFeld);
+	return true;
+	return 0;
 }
 
 bool moeglicheZuegeTest(const int eingabeFeld[GROESSE_Y][GROESSE_X], const int spieler, const int richtig, const int testNummer)
