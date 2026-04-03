@@ -224,7 +224,6 @@ void zugAusfuehren(int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpiel
     {
 		spielfeld[posY][posX] = aktuellerSpieler;
 
-		//Alle Richtungen bearbeiten
 		for (int j = -1; j <= 1; j++)
 		{
 			for (int i = -1; i <= 1; i++)
@@ -232,7 +231,7 @@ void zugAusfuehren(int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpiel
 				if(spielfeld[posY+j][posX+i] == gegner)
 				{
 					int k = 2;
-					while(aufSpielfeld(posY+k*j,posX+k*i))
+					while(aufSpielfeld(posY+k*j,posX+k*i)) //  posY+k*j,posX+k*i
 					{
 						if(spielfeld[posY+k*j][posX+k*i] == 0)
 						{
@@ -244,6 +243,7 @@ void zugAusfuehren(int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpiel
 							{
 								spielfeld[posY+l*j][posX+l*i] = aktuellerSpieler;
 							}
+							break;
 						}
 						k++;
 					} // while
