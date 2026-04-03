@@ -322,34 +322,32 @@ void spielen(const int spielerTyp[2])
 
     //Erzeuge Startaufstellung
     initialisiereSpielfeld(spielfeld);
-
     int aktuellerSpieler = 1;
     zeigeSpielfeld(spielfeld);
 
-    int i = 0;
+	int i = 0;
 
-    while((moeglicheZuege(spielfeld, aktuellerSpieler) > 0) || (moeglicheZuege(spielfeld, 3-aktuellerSpieler) > 0))
-    {
-    	bool zugErfolgt = false;
-
-    	if (i % 2 == 0)
-    	{
-    		zugErfolgt = menschlicherZug(spielfeld, aktuellerSpieler);
-    	}
-    	else
-    	{
-    		zugErfolgt = computerZug(spielfeld, 3-aktuellerSpieler);
-    	}
-    	i++;
-    	if(zugErfolgt)
-    	{
-    		zeigeSpielfeld(spielfeld);
-    	}
-    	else
-    	{
-    		std::cout << "Player " << aktuellerSpieler << " can't execute turn." << std::endl;
-    	}
-    }
+	while((moeglicheZuege(spielfeld, aktuellerSpieler) > 0) || (moeglicheZuege(spielfeld, 3-aktuellerSpieler) > 0))
+	{
+		bool zugErfolgt = false;
+		if (i % 2 == 0)
+		{
+			zugErfolgt = computerZug(spielfeld, aktuellerSpieler); // can change to human
+		}
+		else
+		{
+			zugErfolgt = computerZug(spielfeld, 3-aktuellerSpieler); // can change to human
+		}
+		i++;
+		if(zugErfolgt)
+		{
+			zeigeSpielfeld(spielfeld);
+		}
+		else
+		{
+			std::cout << "Player " << aktuellerSpieler << " can't execute turn." << std::endl;
+		}
+	}
     
     switch (gewinner(spielfeld))
     {
@@ -379,6 +377,5 @@ int main()
      int spielerTyp[2] = {MENSCH, MENSCH};  // Feld, das Informationen ueber den Typ des Spielers enthaelt. MENSCH(=1) oder COPMUTER(=2)
      spielen(spielerTyp);
 
-    
     return 0;
 }
