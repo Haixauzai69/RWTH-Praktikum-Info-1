@@ -338,7 +338,7 @@ void spielen(const int spielerTyp[2])
     	}
     	else
     	{
-    		zugErfolgt = menschlicherZug(spielfeld, 3-aktuellerSpieler);
+    		zugErfolgt = computerZug(spielfeld, 3-aktuellerSpieler);
     	}
     	i++;
     	if(zugErfolgt)
