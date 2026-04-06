@@ -133,7 +133,7 @@ int main()
 			case '5':
 				if(!studentenListe.empty())
 				{
-					int matNr;
+					unsigned int matNr;
 					std::cout << "Matrikelnummer eingeben: ";
 					std::cin >> matNr;
 					for(auto it = studentenListe.begin(); it < studentenListe.end(); it++)
@@ -179,7 +179,7 @@ int main()
 					std::cin >> matNr;
 
 					student = Student(matNr, name, geburtsdatum, adresse); // Methode um neuen Student zu erstellen
-					studentenListe.insert(studentenListe.begin(),student); // Student wird als Front der Liste eingetragen
+					studentenListe.insert(studentenListe.begin(), student); // Student wird als Front der Liste eingetragen
 				}
 				else
 				{
