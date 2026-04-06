@@ -6,6 +6,7 @@
  */
 
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <vector>
 #include <iterator>
@@ -46,6 +47,7 @@ int main()
 				  << "(4): Datenbank in umgekehrter Reihenfolge ausgeben" << std::endl
 				  << "(5): Datenbank löschen" << std::endl
 				  << "(6): Datenelement vorne hinzufuegen" << std::endl
+				  << "(7): Daten aus einer Datei einlesen" << std::endl
                   << "(0): Beenden" << std::endl;
         std::cin >> abfrage;
         std::cin.ignore(10, '\n');
@@ -185,6 +187,42 @@ int main()
 				{
 					std::cout << "Die Liste ist leer!\n\n";
 				}
+				break;
+
+			case '7':
+			{
+				studentenListe.clear();
+				std::string dateiName;
+				std::cout << "Name der Datei: ";
+				std::getline(std::cin, dateiName);
+
+				std::ifstream f(dateiName);
+
+				if(!f)
+				{
+					std::cout << "Datei wurde nicht gefunden" << std::endl;
+					break;
+				}
+
+				std::string line;
+
+				while(std::getline(f, line))
+				{
+					int nr = std::stoi(line);
+
+					std::string name;
+					std::string geburtstag;
+					std::string adresse;
+
+					std::getline(f, name);
+					std::getline(f, geburtstag);
+					std::getline(f, adresse);
+
+					Student stu = Student(nr, name, geburtstag, adresse);
+
+					studentenListe.push_back(stu);
+				}
+			}
 				break;
 
             case '0':
