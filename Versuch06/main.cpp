@@ -202,6 +202,10 @@ int main()
 
 				while(std::getline(f, line))
 				{
+					if(line.empty())
+					{
+						continue;
+					}
 					int nr = std::stoi(line);
 
 					std::string name;
