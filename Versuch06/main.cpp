@@ -48,6 +48,7 @@ int main()
 				  << "(5): Datenbank löschen" << std::endl
 				  << "(6): Datenelement vorne hinzufuegen" << std::endl
 				  << "(7): Daten aus einer Datei einlesen" << std::endl
+				  << "(8): Daten in eine Datei sichern" << std::endl
                   << "(0): Beenden" << std::endl;
         std::cin >> abfrage;
         std::cin.ignore(10, '\n');
@@ -102,7 +103,7 @@ int main()
             case '3':
                 if(!studentenListe.empty())
                 {
-                    std::cout << "Inhalt der Liste in ruecklaufender Reihenfolge:" << std::endl;
+                    std::cout << "Inhalt der Liste in fortlaufender Reihenfolge:" << std::endl;
 //                    studentenListe.ausgabeVorwaerts();
                     for(auto it = studentenListe.begin(); it < studentenListe.end(); it++)
                     {
@@ -118,7 +119,7 @@ int main()
             case '4':
 				if(!studentenListe.empty())
 				{
-					std::cout << "Inhalt der Liste in fortlaufender Reihenfolge:" << std::endl;
+					std::cout << "Inhalt der Liste in ruecklaufender Reihenfolge:" << std::endl;
                     for(auto it = studentenListe.end() - 1; it > studentenListe.begin() - 1; it--)
                     {
                     	it->ausgabe();
@@ -222,6 +223,32 @@ int main()
 				}
 			}
 				break;
+//				Daten in eine Datei sichern
+			case '8':
+			{
+				if(!studentenListe.empty())
+				{
+					std::string filename;
+					std::cout << "Enter file name for saving (.txt): ";
+					std::getline(std::cin, filename);
+					std::ofstream ausgabe;
+					ausgabe.open(filename);
+					for(auto it = studentenListe.begin(); it != studentenListe.end(); it++)
+					{
+						ausgabe << it->getMatNr() << std::endl;
+						ausgabe << it->getName() << std::endl;
+						ausgabe << it->getGeburtstag() << std::endl;
+						ausgabe << it->getAdresse() << std::endl;
+					}
+					ausgabe.close();
+					std::cout << "Information gespeichert in " << filename << std::endl;
+				}
+				else
+				{
+					std::cout << "Liste ist leer!" << std::endl;
+				}
+			}
+			break;
 
             case '0':
                 std::cout << "Das Programm wird nun beendet";
