@@ -1,7 +1,7 @@
 /** @mainpage
  *
  * Praktikum Informatik 1 MMXXV <BR>
- * Versuch 5: Dynamische Datenstrukturen
+ * Versuch 6: Dynamische Datenstrukturen
  *
  */
 
@@ -102,7 +102,7 @@ int main()
             case '3':
                 if(!studentenListe.empty())
                 {
-                    std::cout << "Inhalt der Liste in fortlaufender Reihenfolge:" << std::endl;
+                    std::cout << "Inhalt der Liste in ruecklaufender Reihenfolge:" << std::endl;
 //                    studentenListe.ausgabeVorwaerts();
                     for(auto it = studentenListe.begin(); it < studentenListe.end(); it++)
                     {
@@ -119,8 +119,7 @@ int main()
 				if(!studentenListe.empty())
 				{
 					std::cout << "Inhalt der Liste in fortlaufender Reihenfolge:" << std::endl;
-//					studentenListe.ausgabeRueckwaerts();
-                    for(auto it = studentenListe.end(); it < studentenListe.begin(); it--)
+                    for(auto it = studentenListe.end() - 1; it > studentenListe.begin() - 1; it--)
                     {
                     	it->ausgabe();
                     }
@@ -142,22 +141,17 @@ int main()
 					{
 						if(it->getMatNr() == matNr)
 						{
-							std::cout << "This student is deleted: " << std::endl;
+							std::cout << "Dieser Student wird gelöscht: " << std::endl;
 							it->ausgabe();
 							studentenListe.erase(it);
 							break;
 						}
 						else
 						{
-							std::cout << "Student not found" << std::endl;
+							std::cout << "Student wurde nicht gefunden" << std::endl;
 						}
 					}
 
-//					if (!studentenListe.loescheStudent(matNr)) // falls Student nicht gefunden wurde. bzw. if true
-//					{
-//						std::cout << "Student wurde nicht gefunden. ";
-//					}
-//					studentenListe.loescheStudent(matNr);
 				}
 				else
 				{
@@ -172,11 +166,11 @@ int main()
 					int matNr;
 
 					std::cout << "Name eingeben: " << std::endl;
-					std::cin >> name;
+					std::getline(std::cin, name);
 					std::cout << "Geburtsdatum eingeben: " << std::endl;
-					std::cin >> geburtsdatum;
+					std::getline(std::cin, geburtsdatum);
 					std::cout << "Adresse eingeben: " << std::endl;
-					std::cin >> adresse;
+					std::getline(std::cin, adresse);
 					std::cout << "Matrikelnummer eingeben: " << std::endl;
 					std::cin >> matNr;
 
