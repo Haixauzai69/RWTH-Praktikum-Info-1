@@ -140,21 +140,26 @@ int main()
 					unsigned int matNr;
 					std::cout << "Matrikelnummer eingeben: ";
 					std::cin >> matNr;
-					for(auto it = studentenListe.begin(); it < studentenListe.end(); it++)
+
+					Student temp = Student(matNr, "", "", "");
+					auto it = std::find(studentenListe.begin(),studentenListe.end(), temp);
+					if (it != studentenListe.end())
 					{
-						if(it->getMatNr() == matNr)
+					    std::cout << "Dieser Student wird gelöscht:" << std::endl;
+					    std::cout << *it << std::endl;
+
+					    studentenListe.erase(it);
+
+					    std::cout << "Neue Datenbank: " << std::endl;
+					    for(auto it = studentenListe.begin(); it < studentenListe.end(); it++)
 						{
-							std::cout << "Dieser Student wird gelöscht: " << std::endl;
-							std::cout << *it << std::endl;
-							studentenListe.erase(it);
-							break;
-						}
-						else
-						{
-							std::cout << "Student wurde nicht gefunden" << std::endl;
+							std::cout << *it;
 						}
 					}
-
+					else
+					{
+					    std::cout << "Student wurde nicht gefunden" << std::endl;
+					}
 				}
 				else
 				{
