@@ -8,6 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <algorithm>
 #include <vector>
 #include <iterator>
 
@@ -49,6 +50,7 @@ int main()
 				  << "(6): Datenelement vorne hinzufuegen" << std::endl
 				  << "(7): Daten aus einer Datei einlesen" << std::endl
 				  << "(8): Daten in eine Datei sichern" << std::endl
+				  << "(9): Sortieren aufsteigend nach Matrikelnummer" << std::endl
                   << "(0): Beenden" << std::endl;
         std::cin >> abfrage;
         std::cin.ignore(10, '\n');
@@ -107,7 +109,7 @@ int main()
 //                    studentenListe.ausgabeVorwaerts();
                     for(auto it = studentenListe.begin(); it < studentenListe.end(); it++)
                     {
-                    	std::cout << *it << std::endl;
+                    	std::cout << *it;
                     }
                 }
                 else
@@ -242,6 +244,24 @@ int main()
 					}
 					ausgabe.close();
 					std::cout << "Information gespeichert in " << filename << std::endl;
+				}
+				else
+				{
+					std::cout << "Liste ist leer!" << std::endl;
+				}
+			}
+			break;
+// sortierung nach MatNr
+			case '9':
+			{
+				if(!studentenListe.empty())
+				{
+					std::sort(studentenListe.begin(), studentenListe.end());
+					std::cout << "Liste nach der Sortierung: " << std::endl;
+					for(auto it = studentenListe.begin(); it < studentenListe.end(); it++)
+					{
+						std::cout << *it;
+					}
 				}
 				else
 				{
