@@ -38,7 +38,7 @@ public:
      *
      * Funktion gibt alle Informationen eines Mediums auf der Konsole aus
      */
-    void ausgabe() const;
+    virtual void ausgabe() const;
 
     /*!
      * @brief Ausleihen-Funktion
