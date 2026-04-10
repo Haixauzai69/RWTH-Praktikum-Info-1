@@ -16,7 +16,7 @@ public:
 	DVD(std::string initTitel, int initAltersfreigabe, std::string initGenre);
 	virtual ~DVD();
 	bool ausleihen(Person person, Datum ausleihdatum) override;
-	void ausgabe() const override;
+	void ausgabe(std::ostream& out) const override;
 protected:
 	int p_iFreigabe; // im Jahr gegeben
 	std::string p_sGenre;

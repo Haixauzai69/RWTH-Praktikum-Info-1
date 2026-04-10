@@ -15,7 +15,7 @@ class Buch : public Medium
 public:
 	Buch(std::string initTitel, std::string initAutor);
 	virtual ~Buch();
-	void ausgabe() const override;
+	void ausgabe(std::ostream& out) const override;
 
 protected:
 	std::string p_sAutor;

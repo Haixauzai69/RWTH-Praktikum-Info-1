@@ -19,9 +19,9 @@ Buch::~Buch()
 	// TODO Auto-generated destructor stub
 }
 
-void Buch::ausgabe() const
+void Buch::ausgabe(std::ostream& out) const
 {
-	Medium::ausgabe(); // lazy, will change later if needed
-	std::cout << "Autor: " << p_sAutor << std::endl;
+	Medium::ausgabe(out); // lazy, will change later if needed
+	out << "Autor: " << p_sAutor << std::endl;
 }
 

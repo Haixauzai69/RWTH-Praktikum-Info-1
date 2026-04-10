@@ -415,6 +415,7 @@ void alleMedienAusgeben(std::vector<Medium*>& medien)
     for (unsigned int index = 0; index < medien.size(); index++)
     {
         std::cout << "*************************************************************" << std::endl;
-        medien[index]->ausgabe();
+//        medien[index]->ausgabe();
+        std::cout << medien[index] << std::endl;
     }
 }

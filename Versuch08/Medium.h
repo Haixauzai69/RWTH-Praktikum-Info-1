@@ -38,7 +38,7 @@ public:
      *
      * Funktion gibt alle Informationen eines Mediums auf der Konsole aus
      */
-    virtual void ausgabe() const = 0;
+    virtual void ausgabe(std::ostream& out) const = 0;
 
     /*!
      * @brief Ausleihen-Funktion
@@ -95,4 +95,7 @@ protected:
     Person personAusgeliehen;
 
 };
+
+std::ostream& operator<<(std::ostream& out, const Medium& medi);
+
 #endif

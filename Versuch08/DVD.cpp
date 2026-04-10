@@ -15,11 +15,11 @@ DVD::DVD(std::string initTitel, int initAltersfreigabe, std::string initGenre) :
 	p_sGenre = initGenre;
 }
 
-void DVD::ausgabe() const
+void DVD::ausgabe(std::ostream& out) const
 {
-	Medium::ausgabe(); // lazy, will change later if needed
-	std::cout << "Mindestalter: " << p_iFreigabe << std::endl;
-	std::cout << "Genre: " << p_sGenre << std::endl;
+	Medium::ausgabe(out); // lazy, will change later if needed
+	out << "Mindestalter: " << p_iFreigabe << std::endl;
+	out << "Genre: " << p_sGenre << std::endl;
 }
 
 bool DVD::ausleihen(Person person, Datum ausleihdatum)
