@@ -15,6 +15,27 @@ DVD::DVD(std::string initTitel, int initAltersfreigabe, std::string initGenre) :
 	p_sGenre = initGenre;
 }
 
+void DVD::ausgabe() const
+{
+	Medium::ausgabe(); // lazy, will change later if needed
+	std::cout << "Mindestalter: " << p_iFreigabe << std::endl;
+	std::cout << "Genre: " << p_sGenre << std::endl;
+}
+
+bool DVD::ausleihen(Person person, Datum ausleihdatum)
+{
+	if(((person.getGeburtsdatum() - ausleihdatum)/12) < p_iFreigabe) // geteilt durch 12 weil im Jahr berechnet
+	{
+		std::cout << "Nutzer nicht alt genug, um dieses DVD auszuleihen" << std::endl;
+		return false;
+	}
+	else
+	{
+		Medium::ausleihen(person, ausleihdatum);
+		return true;
+	}
+}
+
 DVD::~DVD()
 {
 	// TODO Auto-generated destructor stub

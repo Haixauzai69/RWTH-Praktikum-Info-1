@@ -28,3 +28,19 @@ void Magazin::ausgabe() const
 	std::cout << "Ausgabedatum: " << p_dAusgabe << std::endl;
 }
 
+bool Magazin::ausleihen(Person person, Datum ausleihdatum)
+{
+	// if (date - date <= 0)
+//	 cannot be borrowed, return false. else Medium::ausleihen() return true
+	if(ausleihdatum - p_dAusgabe <= 0)
+	{
+		std::cout << "Neuste Ausgabe Magazin! Darf nicht ausgeliehen werden!" << std::endl;
+		return false;
+	}
+	else
+	{
+		Medium::ausleihen(person, ausleihdatum);
+		return true;
+	}
+}
+

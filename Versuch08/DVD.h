@@ -15,8 +15,10 @@ class DVD : public Medium
 public:
 	DVD(std::string initTitel, int initAltersfreigabe, std::string initGenre);
 	virtual ~DVD();
+	bool ausleihen(Person person, Datum ausleihdatum) override;
+	void ausgabe() const override;
 protected:
-	int p_iFreigabe;
+	int p_iFreigabe; // im Jahr gegeben
 	std::string p_sGenre;
 };
 
