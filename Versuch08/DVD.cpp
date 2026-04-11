@@ -18,13 +18,13 @@ DVD::DVD(std::string initTitel, int initAltersfreigabe, std::string initGenre) :
 void DVD::ausgabe(std::ostream& out) const
 {
 	Medium::ausgabe(out); // lazy, will change later if needed
-	out << "Mindestalter: " << p_iFreigabe << std::endl;
+	out << "FSK: " << p_iFreigabe << std::endl;
 	out << "Genre: " << p_sGenre << std::endl;
 }
 
 bool DVD::ausleihen(Person person, Datum ausleihdatum)
 {
-	if(((person.getGeburtsdatum() - ausleihdatum)/12) < p_iFreigabe) // geteilt durch 12 weil im Jahr berechnet
+	if(((ausleihdatum - person.getGeburtsdatum())/12) < p_iFreigabe) // geteilt durch 12 weil im Jahr berechnet
 	{
 		std::cout << "Nutzer nicht alt genug, um dieses DVD auszuleihen" << std::endl;
 		return false;

@@ -25,7 +25,7 @@ void Magazin::ausgabe(std::ostream& out) const
 {
 	Medium::ausgabe(out); // lazy, will change later if needed
 	out << "Sparte: " << p_sSparte << std::endl;
-	out << "Ausgabedatum: " << p_dAusgabe << std::endl;
+	out << "Ausgabe: " << p_dAusgabe << std::endl;
 }
 
 bool Magazin::ausleihen(Person person, Datum ausleihdatum)

@@ -416,6 +416,6 @@ void alleMedienAusgeben(std::vector<Medium*>& medien)
     {
         std::cout << "*************************************************************" << std::endl;
 //        medien[index]->ausgabe();
-        std::cout << medien[index] << std::endl;
+        std::cout << *medien[index] << std::endl;
     }
 }

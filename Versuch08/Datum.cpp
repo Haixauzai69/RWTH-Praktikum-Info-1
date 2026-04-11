@@ -68,7 +68,7 @@ void Datum::eingabe(std::istream& in)
         in >> DatumString; //String einlesen
         try
         {
-            // Abfangen der falschen Länge der Eingabe
+            // Abfangen der falschen Lï¿½nge der Eingabe
             if (DatumString.length() != 10)
             {
                 throw (std::string("Falsches Format!"));
@@ -90,16 +90,16 @@ void Datum::eingabe(std::istream& in)
             // Monat einlesen
             stringstream >> monat;
 
-            // Überprüfen der Gültigkeit des Monats
+            // ï¿½berprï¿½fen der Gï¿½ltigkeit des Monats
             if ((monat < 1) || (monat > 12))
             {
-                throw (std::string("Ungültiger Monat!"));
+                throw (std::string("Ungï¿½ltiger Monat!"));
             }
 
-            // Überprüfen, ob der eigegebene Tag zum Monat passt
+            // ï¿½berprï¿½fen, ob der eigegebene Tag zum Monat passt
             if ((tag > tageMonat[monat - 1]) || (tag < 1))
             {
-                throw (std::string("Ungültiger tag!"));
+                throw (std::string("Ungï¿½ltiger tag!"));
             }
 
             // Nach dem Monat muss ein Punkt stehen
@@ -111,9 +111,9 @@ void Datum::eingabe(std::istream& in)
             // Einlesen des Jahrs
             stringstream >> jahr;
 
-            if(jahr < 1000 || jahr > 2021 )
+            if(jahr < 1000 || jahr > 2026 ) // changed from 2021 to 2026
             {
-                throw(std::string("Ungültiges Jahr!"));
+                throw(std::string("Ungï¿½ltiges Jahr!"));
             }
 
             //Datum wurde korrekt eingelesen, also Endlosschleife verlassen
@@ -128,7 +128,7 @@ void Datum::eingabe(std::istream& in)
 }
 
 
-// Überladener Subtraktions-Operator
+// ï¿½berladener Subtraktions-Operator
 int Datum::operator-(const Datum datum) const
 {
     int tagDiff = tag - datum.tag;
@@ -156,11 +156,11 @@ Datum Datum::operator+(const int anzahl_Tage) const
     //Mehrere Monate weiterspringen
     while (tagNeu > tageMonat[monatNeu-1])
     {
-        //Monat erhöhen und die jeweiligen Tage abziehen
+        //Monat erhï¿½hen und die jeweiligen Tage abziehen
         tagNeu -= tageMonat[monatNeu-1];
         monatNeu++;
 
-        // Monat darf nicht größer als 12 werden
+        // Monat darf nicht grï¿½ï¿½er als 12 werden
         if (monatNeu > 12)
         {
             monatNeu -= 12;
@@ -180,14 +180,14 @@ Datum& Datum::operator=(Datum& Datum)
     return *this;
 }
 
-//Streamoperator für ostream
+//Streamoperator fï¿½r ostream
 std::ostream& operator<<(std::ostream& out, const Datum& datum)
 {
     datum.ausgabe(out);
     return out;
 }
 
-//Streamoperator für istream
+//Streamoperator fï¿½r istream
 std::istream& operator >> (std::istream& in, Datum& datum)
 {
     datum.eingabe(in);
