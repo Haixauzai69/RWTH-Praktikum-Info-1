@@ -62,30 +62,32 @@ void vString()
 	std::cout << "Die Positionen im Alphabet sind jeweils: " << pos1 << " " << pos2 << std::endl;
 }
 
+
+
 int main()
 {
 
     vZahlen();
     vString();
 
-	const int iZweite = 1;
-    {
-    	int iFeld[2] = {1,2};
-    	std::cout << iFeld[0] << " " << iFeld[1] << std::endl;
+//	const int iZweite = 1;
+	{
+		int iFeld[2] = {1,2};
+		std::cout << iFeld[0] << " " << iFeld[1] << std::endl;
 
-    	int ispielfeld[2][3] = {{1,2,3},{4,5,6}};
-    	for (int i = 0; i < 2; i++)
-    	{
-    		for (int j = 0; j < 3; j++)
-    		{
-    			std::cout << ispielfeld[i][j] << " ";
-    		}
-    		std::cout << std::endl;
-    	}
-    	const int iZweite = 1;
-    	std::cout << iZweite << std::endl;
-    }
-    std::cout << iZweite << std::endl;
+		int ispielfeld[2][3] = {{1,2,3},{4,5,6}};
+		for (int i = 0; i < 2; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				std::cout << ispielfeld[i][j] << " ";
+			}
+			std::cout << std::endl;
+		}
+		const int iZweite = 1;
+		std::cout << iZweite << std::endl;
+	 }
+//    std::cout << iZweite << std::endl;
 
     return 0;
 }
