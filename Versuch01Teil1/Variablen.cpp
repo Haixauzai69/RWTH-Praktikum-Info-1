@@ -10,8 +10,9 @@
 #include <iostream>
 #include <string>
 
-void vZahlen(int iErste, int iZweite)
+void vZahlen()
 {
+	int iErste, iZweite;
 	std::cout << "Eingabe erster Zahl: " << std::endl;
 	std::cin >> iErste;
 	std::cout << "Eingabe zweiter Zahl: " << std::endl;
@@ -63,9 +64,8 @@ void vString()
 
 int main()
 {
-//    int iErste = 0;
-//    int iZweite = 0;
-//    vZahlen(iErste, iZweite);
+
+    vZahlen();
     vString();
 
 	const int iZweite = 1;
