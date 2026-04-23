@@ -56,7 +56,7 @@ void vString()
 
 	std::cout << iName1 << " " << iName2 << std::endl;
 
-	int pos1 = sVorname[0] % 32;
+	int pos1 = sVorname[0] % 32; // A = 65 -> A % 32 = 1 erste Position -> nachfolgende Buchstabe aufsteigend
 	int pos2 = sVorname[1] % 32;
 
 	std::cout << "Die Positionen im Alphabet sind jeweils: " << pos1 << " " << pos2 << std::endl;
@@ -67,7 +67,7 @@ void vString()
 int main()
 {
 
-    vZahlen();
+//    vZahlen();
     vString();
 
 //	const int iZweite = 1;

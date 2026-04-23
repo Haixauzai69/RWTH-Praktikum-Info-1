@@ -10,8 +10,8 @@
 
 unsigned long long fibonacci(int n)
 {
-    unsigned long long previousFib = 0;
-    unsigned long long currentFib = 1;
+    unsigned int previousFib = 0;
+    unsigned int currentFib = 1;
     if(n == 0)
     {
         return 0;
@@ -22,7 +22,7 @@ unsigned long long fibonacci(int n)
     }
     for (int i = 0; i <= n; i++)
     {
-        unsigned long long newFib = previousFib + currentFib ;
+        unsigned int newFib = previousFib + currentFib ;
         previousFib = currentFib; 
         currentFib = newFib; 
     }

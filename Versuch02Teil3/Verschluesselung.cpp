@@ -15,17 +15,18 @@ using namespace std;
 string verschluesseln(char schluessel[2][26], string wort)
 {
 	string result; 	
-	for (char c : wort)
+	for (int i = 0; i < wort.length(); i++)
 	{
+		char c = wort[i];
         // Nur Buchstaben von A bis Z verarbeiten
         if (c >= 'A' && c <= 'Z')
         {
             // Index in der ersten Zeile finden
-            for (int i = 0; i < 26; i++)
+            for (int j = 0; j < 26; j++)
             {
-                if (schluessel[0][i] == c)
+                if (schluessel[0][j] == c)
                 {
-                    result += schluessel[1][i];
+                    result += schluessel[1][j];
                     break;
                 }
             }
@@ -43,8 +44,9 @@ string verschluesseln(char schluessel[2][26], string wort)
 string entschluesseln(char schluessel[2][26], string wort)
 {
 	string result;
-	 for (char c : wort)
+	 for (int j = 0; j < wort.length(); j++)
 	 {
+		 char c = wort[j];
         // Nur Großbuchstaben A–Z verarbeiten
         if (c >= 'A' && c <= 'Z')
         {
@@ -71,7 +73,7 @@ int main()
 	char secret[2][26] = {{'A','B','C','D','E','F','G','H','I','J',
 		'K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'},
 	{'Q','W','E','R','T','Y','U','I','O','P','A','S','D',
-		'F','G','H','J','K','L','Z','X','C','V','B','N','M'}};
+		'F','G','H','J','K','L','Z','X','C','V','B','N','M'}}; // nach englischer Tastatur
 
 	
 	string word;

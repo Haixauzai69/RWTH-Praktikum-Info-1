@@ -42,5 +42,15 @@ int main()
     // Der gesamten Struktur in einem Schritt kopieren 
     Person nKopieGesamt = nBenutzer;
 
+    cout << "Vorname (gesamt): " << nKopieGesamt.sVorname << endl;
+	cout << "Nachname (gesamt): " << nKopieGesamt.sNachname << endl;
+	cout << "Geburtsjahr (gesamt): " << nKopieGesamt.iGeburtsjahr << endl;
+	cout << "Alter (gesamt): " << nKopieGesamt.iAlter << endl;
+
+	cout << "Vorname (einzeln): " << nKopieEinzeln.sVorname << endl;
+	cout << "Nachname (einzeln): " << nKopieEinzeln.sNachname << endl;
+	cout << "Geburtsjahr (einzeln): " << nKopieEinzeln.iGeburtsjahr << endl;
+	cout << "Alter (einzeln): " << nKopieEinzeln.iAlter << endl;
+
     return 0;
 }
