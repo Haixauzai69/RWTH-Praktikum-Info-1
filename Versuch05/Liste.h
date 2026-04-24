@@ -25,7 +25,7 @@ public:
     Student dataFront();
     void ausgabeVorwaerts() const;
     void ausgabeRueckwaerts() const;
-    bool loescheStudent(int matrikelnummer);
+    bool loescheStudent(unsigned int matrikelnummer);
 };
 
 #endif /*LISTE_H_*/

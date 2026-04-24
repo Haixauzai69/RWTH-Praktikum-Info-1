@@ -29,7 +29,7 @@ void Liste::pushBack(Student pData)
     else
     {
         back->setNext(neuesElement);
-        neuesElement->setPrev(back);
+        neuesElement->setPrev(back); //aufeinander zeigen
         back = neuesElement;
     }
 }
@@ -126,52 +126,51 @@ void Liste::ausgabeRueckwaerts() const
     }
 }
 
-bool Liste::loescheStudent(int matrikelnummer)
+bool Liste::loescheStudent(unsigned int matrikelnummer)
 {
 	ListenElement* cursor = front;
 
-	while (cursor != nullptr) // Die Liste wird durchgelaufen
+	while (cursor != nullptr)
 	{
 		if (cursor->getData().getMatNr() == matrikelnummer)
 		{
 			// Element vorne
-			if (cursor == front) // falls der gesuchte Student am Anfang der Liste liegt
+			if (cursor == front) // am Anfang der Liste
 			{
 				front = cursor->getNext();
 
 				if (front != nullptr) // falls front nach der Inkrementation nicht auf null zeigt
 				{
-					front->setPrev(nullptr); // Prev Zeiger zeigt jetzt statt auf dem Element, jetzt auf nullptr, weil er jetzt front ist
+					front->setPrev(nullptr);
 				}
 				else
 				{
-					back = nullptr; // Liste ist nur ein Element lang. Bei der Löschung muss back und front ein nullptr sein
+					back = nullptr; // Liste ist nur ein Element lang
 				}
 			}
 			    // Element hinten
-				else if (cursor == back) // falls das Element sich als letztes befindet
+				else if (cursor == back) // letztes Element
 				{
 					back = cursor->getPrev();
 
-					if (back != nullptr) // falls back nach Dekrementation nicht auf null zeigt, dann ist es tatsächlich back
+					if (back != nullptr)
 					{
-						front->setNext(nullptr); // Next-Zeiger zeigt jetzt statt Element, jetzt auf nullptr, weil das nächste Element das jetzige back ist
+						back->setNext(nullptr);
 					}
-					// else wird hier nicht gebraucht, da vorher überprüft wurde ob die Liste ein Element besitzt.
-				}
 
+				}
 			    // Element Mitte
-				else // sonst ist das Element irgendwo in der Liste
+				else
 				{
-					cursor->getPrev()->setNext(cursor->getNext()); // Next-Zeiger des vorherigen Elements zeigt jetzt auf das nächste Element des Cursors
-					cursor->getNext()->setPrev(cursor->getPrev()); // Analog dazu: Prev-Zeiger des nächsten Elements zeigt jetzt auf das vorherige Element des Cursors
+					cursor->getPrev()->setNext(cursor->getNext());  // einfach mittleres Element ignorieren
+					cursor->getNext()->setPrev(cursor->getPrev());
 				}
 
 			std::cout << "Folgender Student wird gelöscht: ";
-			cursor->getData().ausgabe(); // Daten werden ausgegeben
+			cursor->getData().ausgabe();
 			delete cursor; // Student wird gelöscht.
 			std::cout << "\nStudent wurde erfolgreich gelöscht ";
-			return true; // Programm wird da enden. Untere Argumente werden nicht mehr erreicht
+			return true;
 
 		}
 		cursor = cursor->getNext(); // Inkrementation

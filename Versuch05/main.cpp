@@ -44,7 +44,7 @@ int main()
                   << "(3): Datenbank ausgeben" << std::endl
 				  << "(4): Datenbank in umgekehrter Reihenfolge ausgeben" << std::endl
 				  << "(5): Datenbank löschen" << std::endl
-				  << "(6): Datenelement vorne löschen" << std::endl
+				  << "(6): Datenelement vorne hinzufügen" << std::endl
                   << "(0): Beenden" << std::endl;
         std::cin >> abfrage;
         std::cin.ignore(10, '\n');
@@ -127,7 +127,6 @@ int main()
 					int matNr;
 					std::cout << "Matrikelnummer eingeben: ";
 					std::cin >> matNr;
-					//studentenListe.loescheStudent(matNr);
 
 					if (!studentenListe.loescheStudent(matNr)) // falls Student nicht gefunden wurde. bzw. if true
 					{
