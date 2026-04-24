@@ -10,18 +10,18 @@
 
 void versuch04()
 {
-	    const double menschGroeße = 0.00170; //in km
-		const double plattform = 0.5557; //in km
-		const double erdHoehe = 6371; // in km
+	    const double menschGroeße = 0.00170; // km
+		const double plattform = 0.5557; // km
+		const double erdHoehe = 6371; // km
 
 		Vektor erdRadius(0, erdHoehe, 0);
 		Vektor aussichtsPunkt(0, erdHoehe + plattform + menschGroeße, 0);
-		Vektor sicht = erdRadius.sub(aussichtsPunkt);
+		Vektor sicht = erdRadius.sub(aussichtsPunkt); // Sicht entgegengesetzte Richtung zu erdRadius
 		int schritte = 0;
 		double gesamtWinkel = 0.0;
-		const double beta = 0.0000000001; // in rad
+		const double beta = 0.0000000001; // rad
 
-		while(erdRadius.winkel(sicht) > 90.0)
+		while(erdRadius.winkel(sicht) > 90.0) // |/
 		{
 			aussichtsPunkt.rotiereUmZ(beta);
 			sicht = erdRadius.sub(aussichtsPunkt);
