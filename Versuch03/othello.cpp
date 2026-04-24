@@ -318,43 +318,127 @@ bool menschlicherZug(int spielfeld[GROESSE_Y][GROESSE_X], const int aktuellerSpi
 
 void spielen(const int spielerTyp[2])
 {
-    int spielfeld[GROESSE_Y][GROESSE_X];
-
-    //Erzeuge Startaufstellung
-    initialisiereSpielfeld(spielfeld);
-    int aktuellerSpieler = 1;
-    zeigeSpielfeld(spielfeld);
-
-	int i = 0;
-
-	while((moeglicheZuege(spielfeld, aktuellerSpieler) > 0) || (moeglicheZuege(spielfeld, 3-aktuellerSpieler) > 0))
+	if(spielerTyp[0] != spielerTyp[1]) // wenn Mensch gegen Computer
 	{
-		bool zugErfolgt = false;
-		if (i % 2 == 0)
+		int spielfeld[GROESSE_Y][GROESSE_X];
+
+		    //Erzeuge Startaufstellung
+		    initialisiereSpielfeld(spielfeld);
+		    int aktuellerSpieler = 1;
+		    zeigeSpielfeld(spielfeld);
+
+			int i = 0;
+
+			while((moeglicheZuege(spielfeld, aktuellerSpieler) > 0) || (moeglicheZuege(spielfeld, 3-aktuellerSpieler) > 0))
+			{
+				bool zugErfolgt = false;
+				if (i % 2 == 0)
+				{
+					zugErfolgt = menschlicherZug(spielfeld, aktuellerSpieler); // mensch
+				}
+				else
+				{
+					zugErfolgt = computerZug(spielfeld, 3-aktuellerSpieler); // computer
+				}
+				i++;
+				if(zugErfolgt)
+				{
+					zeigeSpielfeld(spielfeld);
+				}
+				else
+				{
+					std::cout << "Player " << aktuellerSpieler << " can't execute turn." << std::endl;
+				}
+			}
+
+		    switch (gewinner(spielfeld))
+		    {
+				case 0: std::cout << "Draw!" << std::endl; break;
+				case 1: std::cout << "Player 1 wins!" << std::endl; break;
+				case 2: std::cout << "Player 2 wins!" << std::endl; break;
+		    }
+	}
+	else if(spielerTyp[0] == 1) // wenn beide Menschen
+	{
+		int spielfeld[GROESSE_Y][GROESSE_X];
+
+		//Erzeuge Startaufstellung
+		initialisiereSpielfeld(spielfeld);
+		int aktuellerSpieler = 1;
+		zeigeSpielfeld(spielfeld);
+
+		int i = 0;
+
+		while((moeglicheZuege(spielfeld, aktuellerSpieler) > 0) || (moeglicheZuege(spielfeld, 3-aktuellerSpieler) > 0))
 		{
-			zugErfolgt = computerZug(spielfeld, aktuellerSpieler); // can change to human
+			bool zugErfolgt = false;
+			if (i % 2 == 0)
+			{
+				zugErfolgt = menschlicherZug(spielfeld, aktuellerSpieler);
+			}
+			else
+			{
+				zugErfolgt = menschlicherZug(spielfeld, 3-aktuellerSpieler);
+			}
+			i++;
+			if(zugErfolgt)
+			{
+				zeigeSpielfeld(spielfeld);
+			}
+			else
+			{
+				std::cout << "Player " << aktuellerSpieler << " can't execute turn." << std::endl;
+			}
 		}
-		else
+
+		switch (gewinner(spielfeld))
 		{
-			zugErfolgt = computerZug(spielfeld, 3-aktuellerSpieler); // can change to human
+			case 0: std::cout << "Draw!" << std::endl; break;
+			case 1: std::cout << "Player 1 wins!" << std::endl; break;
+			case 2: std::cout << "Player 2 wins!" << std::endl; break;
 		}
-		i++;
-		if(zugErfolgt)
+	}
+	else // wenn beide Computer
+	{
+		int spielfeld[GROESSE_Y][GROESSE_X];
+
+		//Erzeuge Startaufstellung
+		initialisiereSpielfeld(spielfeld);
+		int aktuellerSpieler = 1;
+		zeigeSpielfeld(spielfeld);
+
+		int i = 0;
+
+		while((moeglicheZuege(spielfeld, aktuellerSpieler) > 0) || (moeglicheZuege(spielfeld, 3-aktuellerSpieler) > 0))
 		{
-			zeigeSpielfeld(spielfeld);
+			bool zugErfolgt = false;
+			if (i % 2 == 0)
+			{
+				zugErfolgt = computerZug(spielfeld, aktuellerSpieler);
+			}
+			else
+			{
+				zugErfolgt = computerZug(spielfeld, 3-aktuellerSpieler);
+			}
+			i++;
+			if(zugErfolgt)
+			{
+				zeigeSpielfeld(spielfeld);
+			}
+			else
+			{
+				std::cout << "Player " << aktuellerSpieler << " can't execute turn." << std::endl;
+			}
 		}
-		else
+
+		switch (gewinner(spielfeld))
 		{
-			std::cout << "Player " << aktuellerSpieler << " can't execute turn." << std::endl;
+			case 0: std::cout << "Draw!" << std::endl; break;
+			case 1: std::cout << "Player 1 wins!" << std::endl; break;
+			case 2: std::cout << "Player 2 wins!" << std::endl; break;
 		}
 	}
     
-    switch (gewinner(spielfeld))
-    {
-		case 0: std::cout << "Draw!" << std::endl; break;
-		case 1: std::cout << "Player 1 wins!" << std::endl; break;
-		case 2: std::cout << "Player 2 wins!" << std::endl; break;
-    }
 }
 
 int main()
