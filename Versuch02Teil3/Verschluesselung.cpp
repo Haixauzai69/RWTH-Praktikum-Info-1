@@ -15,7 +15,7 @@ using namespace std;
 string verschluesseln(char schluessel[2][26], string wort)
 {
 	string result; 	
-	for (int i = 0; i < wort.length(); i++)
+	for (unsigned int i = 0; i < wort.length(); i++)
 	{
 		char c = wort[i];
         // Nur Buchstaben von A bis Z verarbeiten
@@ -44,7 +44,7 @@ string verschluesseln(char schluessel[2][26], string wort)
 string entschluesseln(char schluessel[2][26], string wort)
 {
 	string result;
-	 for (int j = 0; j < wort.length(); j++)
+	 for (unsigned int j = 0; j < wort.length(); j++)
 	 {
 		 char c = wort[j];
         // Nur Großbuchstaben A–Z verarbeiten
