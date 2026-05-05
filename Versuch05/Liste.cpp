@@ -139,7 +139,7 @@ bool Liste::loescheStudent(unsigned int matrikelnummer)
 			{
 				front = cursor->getNext();
 
-				if (front != nullptr) // falls front nach der Inkrementation nicht auf null zeigt
+				if (front != nullptr)
 				{
 					front->setPrev(nullptr);
 				}

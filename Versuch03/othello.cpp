@@ -458,7 +458,7 @@ int main()
         std::cout << std::endl << std::endl;
     }
 
-     int spielerTyp[2] = {MENSCH, MENSCH};  // Feld, das Informationen ueber den Typ des Spielers enthaelt. MENSCH(=1) oder COPMUTER(=2)
+     int spielerTyp[2] = {COMPUTER, COMPUTER};  // Feld, das Informationen ueber den Typ des Spielers enthaelt. MENSCH(=1) oder COPMUTER(=2)
      spielen(spielerTyp);
 
     return 0;
