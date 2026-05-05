@@ -19,7 +19,7 @@ void versuch04()
 		Vektor sicht = erdRadius.sub(aussichtsPunkt); // Sicht entgegengesetzte Richtung zu erdRadius
 		int schritte = 0;
 		double gesamtWinkel = 0.0;
-		const double beta = 0.00000001; // rad
+		const double beta = 0.000000001; // rad
 
 		while(erdRadius.winkel(sicht) > 90.0) // |/
 		{

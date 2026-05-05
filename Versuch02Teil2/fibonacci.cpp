@@ -32,7 +32,7 @@ unsigned long long fibonacci(int n)
 int main ()
 {
     std::cout << " Fibonacci - Zahlen von 0 bis 12:" << std::endl ;
-    for (int i = 0; i <= 12 ; i ++)
+    for (int i = 0; i <= 42 ; i ++)
     {
         std::cout << "f(" << i << ") = " << fibonacci(i) << std::endl ;
     }
