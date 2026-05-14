@@ -120,7 +120,7 @@ int main()
 				if(!studentenListe.empty())
 				{
 					std::cout << "Inhalt der Liste in ruecklaufender Reihenfolge:" << std::endl;
-                    for(auto it = studentenListe.end() - 1; it > studentenListe.begin() - 1; it--)
+                    for(auto it = studentenListe.end(); it > studentenListe.begin(); --it)
                     {
                     	it->ausgabe();
                     }

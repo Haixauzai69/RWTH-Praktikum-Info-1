@@ -147,11 +147,14 @@ int main()
 					int matNr;
 
 					std::cout << "Name eingeben: " << std::endl;
-					std::cin >> name;
+//					std::cin >> name;
+					getline(std::cin, name);
 					std::cout << "Geburtsdatum eingeben: " << std::endl;
-					std::cin >> geburtsdatum;
+//					std::cin >> geburtsdatum;
+					getline(std::cin, geburtsdatum);
 					std::cout << "Adresse eingeben: " << std::endl;
-					std::cin >> adresse;
+//					std::cin >> adresse;
+					getline(std::cin, adresse);
 					std::cout << "Matrikelnummer eingeben: " << std::endl;
 					std::cin >> matNr;
 

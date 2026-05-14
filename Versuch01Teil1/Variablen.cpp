@@ -30,7 +30,7 @@ void vZahlen()
 
 	double dSummeCast = static_cast<double>(iErste) + static_cast<double>(iZweite);
 	std::cout << "Die Summe (double cast) ist: " << dSummeCast << std::endl;
-	double dQuotientCast = static_cast<double>(iErste)/static_cast<double>(iZweite);
+	double dQuotientCast = static_cast<double>(iErste)/ (iZweite);
 	std::cout << "Die Quotient (double cast) ist: " << dQuotientCast << std::endl;
 }
 
