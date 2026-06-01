@@ -25,16 +25,16 @@ int main()
 
     if (abfrage != 'j')
     {
-        student = Student(34567, "Harro Simoneit", "19.06.1971", "Am Markt 1");
-        studentenListe.push_back(student);
-        student = Student(74567, "Vera Schmitt", "23.07.1982", "Gartenstr. 23");
-        studentenListe.push_back(student);
-        student = Student(12345, "Siggi Baumeister", "23.04.1983", "Ahornst.55");
-        studentenListe.push_back(student);
-        student = Student(64567, "Paula Peters", "9.01.1981", "Weidenweg 12");
-        studentenListe.push_back(student);
-        student = Student(23456, "Walter Rodenstock", "15.10.1963", "W�llnerstr.9");
-        studentenListe.push_back(student);
+//        student = Student(34567, "Harro Simoneit", "19.06.1971", "Am Markt 1");
+//        studentenListe.push_back(student);
+//        student = Student(74567, "Vera Schmitt", "23.07.1982", "Gartenstr. 23");
+//        studentenListe.push_back(student);
+//        student = Student(12345, "Siggi Baumeister", "23.04.1983", "Ahornst.55");
+//        studentenListe.push_back(student);
+//        student = Student(64567, "Paula Peters", "9.01.1981", "Weidenweg 12");
+//        studentenListe.push_back(student);
+//        student = Student(23456, "Walter Rodenstock", "15.10.1963", "W�llnerstr.9");
+//        studentenListe.push_back(student);
     }
 
     do
@@ -120,7 +120,7 @@ int main()
 				if(!studentenListe.empty())
 				{
 					std::cout << "Inhalt der Liste in ruecklaufender Reihenfolge:" << std::endl;
-                    for(auto it = studentenListe.end(); it > studentenListe.begin(); --it)
+                    for(auto it = studentenListe.end() - 1; it >= studentenListe.begin(); --it)
                     {
                     	it->ausgabe();
                     }
@@ -183,7 +183,7 @@ int main()
 					std::cout << "Die Liste ist leer!\n\n";
 				}
 				break;
-
+// 			Daten aus einer Datei ablesen
 			case '7':
 			{
 				studentenListe.clear();

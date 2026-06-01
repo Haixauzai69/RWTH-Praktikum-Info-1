@@ -1,11 +1,3 @@
-676767
-bigpp123
-20.06.2004
-dingdong 21
-34567
-Harro Simoneit
-19.06.1971
-Am Markt 1
 74567
 Vera Schmitt
 23.07.1982
@@ -13,7 +5,7 @@ Gartenstr. 23
 12345
 Siggi Baumeister
 23.04.1983
-Ahornst.55
+Ahornstr.55
 64567
 Paula Peters
 9.01.1981
@@ -22,3 +14,7 @@ Weidenweg 12
 Walter Rodenstock
 15.10.1963
 W�llnerstr.9
+98765
+Tobias M�ller
+21.07.1985
+Weidenweg 15
