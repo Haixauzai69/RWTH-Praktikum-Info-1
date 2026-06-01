@@ -26,6 +26,7 @@ class Vektor
     double skalarProd(const Vektor& input) const;
     double winkel(const Vektor& input) const;
     void rotiereUmZ(const double rad);
+    Vektor operator+(Vektor input);
     
    private:
     double x;
@@ -33,5 +34,7 @@ class Vektor
     double z;
 
 };
+
+std::ostream& operator<<(std::ostream& out, const Vektor& vector);
 
 #endif

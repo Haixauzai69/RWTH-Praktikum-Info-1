@@ -42,16 +42,15 @@ void versuch04()
 int main()
 {
     
-//    Vektor vector1(1, 0, 0);
-//    Vektor vector2(0, 1, 0);
-//
-//    vector1.ausgabe();
-//    vector2.ausgabe();
-//
-//    Vektor erdRadius(0, 0, 0);      // bitte sinnvoll initialisieren
-//    Vektor aussichtsPunkt(0, 0, 0); // bitte sinnvoll initialisieren
-//    Vektor sicht(0, 0, 0);
-	versuch04();
+    Vektor vector1(1, 0, 0);
+    Vektor vector2(0, 1, 0);
+
+    vector1.ausgabe();
+
+
+    std::cout << vector1 << std::endl;
+
+    std::cout << vector1 + vector2 << std::endl;
 
     return 0;
 }

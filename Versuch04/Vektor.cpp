@@ -60,3 +60,15 @@ void Vektor::rotiereUmZ(const double rad)
 	x = x*cos(rad) - y*sin(rad);
 	y = temp*sin(rad) + y*cos(rad);
 }
+
+Vektor Vektor::operator+(Vektor input)
+{
+	Vektor ergebnis = Vektor(x + input.x, y + input.y, z + input.z);
+	return ergebnis;
+}
+
+std::ostream& operator<<(std::ostream& out, const Vektor& vector)
+{
+	vector.ausgabe();
+	return out;
+}
