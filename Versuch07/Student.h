@@ -17,7 +17,7 @@ public:
     std::string getGeburtstag() const;
     std::string getAdresse() const;
     void ausgabe(std::ostream& ausgabe) const;
-// alle 3 sortiert nach MatNr
+// alle 3 nach MatNr
     bool operator==(const Student& comp);
     bool operator>(const Student& comp);
     bool operator<(const Student& comp);

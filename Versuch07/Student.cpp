@@ -73,6 +73,13 @@ void Student::ausgabe(std::ostream& ausgabe) const
               << std::endl;
 }
 
+/**
+ * @brief Vergleiche Studenten anhand matNr
+ *
+ * @param comp: zu vergleichender Student
+ *
+ * @return true, false
+ */
 bool Student::operator==(const Student& comp)
 {
 	if (this->matNr == comp.matNr)
@@ -82,6 +89,13 @@ bool Student::operator==(const Student& comp)
 	return false;
 }
 
+/**
+ * @brief Vergleiche Studenten anhand matNr
+ *
+ * @param comp: zu vergleichender Student
+ *
+ * @return true, false
+ */
 bool Student::operator>(const Student& comp)
 {
 	if (this->matNr > comp.matNr)
@@ -91,6 +105,13 @@ bool Student::operator>(const Student& comp)
 	return false;
 }
 
+/**
+ * @brief Vergleiche Studenten anhand matNr
+ *
+ * @param comp: zu vergleichender Student
+ *
+ * @return true, false
+ */
 bool Student::operator<(const Student& comp)
 {
 	if (this->matNr < comp.matNr)
@@ -100,6 +121,13 @@ bool Student::operator<(const Student& comp)
 	return false;
 }
 
+/**
+ * @brief zum Ausdrucken genutzt
+ *
+ * @param out ostream, student Student
+ *
+ * @return ostream
+ */
 std::ostream& operator<<(std::ostream& out, const Student& student)
 {
 	student.ausgabe(out);

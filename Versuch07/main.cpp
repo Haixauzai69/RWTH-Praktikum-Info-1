@@ -26,16 +26,16 @@ int main()
 
     if (abfrage != 'j')
     {
-        student = Student(34567, "Harro Simoneit", "19.06.1971", "Am Markt 1");
-        studentenListe.push_back(student);
-        student = Student(74567, "Vera Schmitt", "23.07.1982", "Gartenstr. 23");
-        studentenListe.push_back(student);
-        student = Student(12345, "Siggi Baumeister", "23.04.1983", "Ahornst.55");
-        studentenListe.push_back(student);
-        student = Student(64567, "Paula Peters", "9.01.1981", "Weidenweg 12");
-        studentenListe.push_back(student);
-        student = Student(23456, "Walter Rodenstock", "15.10.1963", "W�llnerstr.9");
-        studentenListe.push_back(student);
+//        student = Student(34567, "Harro Simoneit", "19.06.1971", "Am Markt 1");
+//        studentenListe.push_back(student);
+//        student = Student(74567, "Vera Schmitt", "23.07.1982", "Gartenstr. 23");
+//        studentenListe.push_back(student);
+//        student = Student(12345, "Siggi Baumeister", "23.04.1983", "Ahornst.55");
+//        studentenListe.push_back(student);
+//        student = Student(64567, "Paula Peters", "9.01.1981", "Weidenweg 12");
+//        studentenListe.push_back(student);
+//        student = Student(23456, "Walter Rodenstock", "15.10.1963", "W�llnerstr.9");
+//        studentenListe.push_back(student);
     }
 
     do
