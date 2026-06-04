@@ -62,7 +62,11 @@ public:
      * \return int: gibt die ID des Mediums zur�ck
      */
     unsigned int getID();
-
+    /*!
+	 * @brief Status des Mediums
+	 *
+	 * \return bool: ob das Medium ausgeliehen wurde
+	 */
     bool getStatus();
 
 protected:

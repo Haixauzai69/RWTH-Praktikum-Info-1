@@ -24,7 +24,7 @@ public:
 	 */
 	DVD(std::string initTitel, int initAltersfreigabe, std::string initGenre);
 	/*
-	 * @brief: Destruktor vom Buch
+	 * @brief: Destruktor
 	 */
 	virtual ~DVD();
 	/*
