@@ -17,7 +17,7 @@ DVD::DVD(std::string initTitel, int initAltersfreigabe, std::string initGenre) :
 
 void DVD::ausgabe(std::ostream& out) const
 {
-	Medium::ausgabe(out); // lazy, will change later if needed
+	Medium::ausgabe(out);
 	out << "FSK: " << p_iFreigabe << std::endl;
 	out << "Genre: " << p_sGenre << std::endl;
 }

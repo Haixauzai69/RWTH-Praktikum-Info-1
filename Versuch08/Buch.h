@@ -13,11 +13,28 @@
 class Buch : public Medium
 {
 public:
+	/*
+	 * @brief: Konstruktor
+	 *
+	 * Konstruktor zum Herstellen vom Buch
+	 *
+	 * \param string initTitel: Titel vom Buch
+	 * \param string initAutor: Autor vom Buch
+	 */
 	Buch(std::string initTitel, std::string initAutor);
+	/*
+	 * @brief: Destruktor vom Buch
+	 */
 	virtual ~Buch();
+	/*
+	 * @brief: Funktion zum ausgeben des Buches, abgeleitet vom Oberklasse
+	 */
 	void ausgabe(std::ostream& out) const override;
 
 protected:
+	/*
+	 * @brief Autor des Buches
+	 */
 	std::string p_sAutor;
 };
 

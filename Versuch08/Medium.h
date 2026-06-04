@@ -98,6 +98,9 @@ protected:
 
 };
 
+/*!
+ * 	@brief operator ueberladen zum ausdruecken
+ */
 std::ostream& operator<<(std::ostream& out, const Medium& medi);
 
 #endif
