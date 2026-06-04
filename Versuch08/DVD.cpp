@@ -24,7 +24,7 @@ void DVD::ausgabe(std::ostream& out) const
 
 bool DVD::ausleihen(Person person, Datum ausleihdatum)
 {
-	if(((ausleihdatum - person.getGeburtsdatum())/12) < p_iFreigabe) // geteilt durch 12 weil im Jahr berechnet
+	if(((ausleihdatum - person.getGeburtsdatum())/12) < p_iFreigabe) // geteilt durch 12 weil im Jahr gerechnet
 	{
 		std::cout << "Nutzer nicht alt genug, um dieses DVD auszuleihen" << std::endl;
 		return false;

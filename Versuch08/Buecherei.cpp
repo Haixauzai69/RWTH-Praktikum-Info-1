@@ -74,6 +74,7 @@ int main()
                   << "(3): Datenbank ausgeben" << std::endl
                   << "(4): Ein Medium verleihen" << std::endl
                   << "(5): Ein Medium zur�cknehmen" << std::endl
+				  << "(6): Alle ausgeliehene Medien ausgeben" << std::endl
                   << "(7): Beenden" << std::endl;
 
         // Einlesen der Abfrage
@@ -127,6 +128,28 @@ int main()
                 mediumZurueckgeben(medien);
                 break;
             }
+
+            case '6':
+			{
+				std::cout << "Ausgeliehene Medien in der B�cherei:" << std::endl;
+				bool ausgeliehen = false;
+				for (unsigned int index = 0; index < medien.size(); index++)
+				{
+					if(medien[index]->getStatus())
+					{
+						std::cout << "*************************************************************" << std::endl;
+						std::cout << *medien[index] << std::endl;
+						ausgeliehen = true;
+					}
+				}
+
+				if (!ausgeliehen)
+				{
+					std::cout << "Kein Medium wurde ausgeliehen!" << std::endl;
+				}
+
+				break;
+			}
 
             case '7':
             {
